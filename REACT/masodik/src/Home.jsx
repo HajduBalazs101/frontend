@@ -1,4 +1,4 @@
-function Locations() {
+function Home() {
   const [count, setCount] = useState(0)
 
   return (
@@ -8,4 +8,4 @@ function Locations() {
   )
 }
 
-export default Locations
+export default Home
