@@ -17,9 +17,9 @@ function App() {
         <li><a href="about.asp">About</a></li>
       </ul>
     </nav>
-
     */egyéb tartalom*/
 
+    <Home/>
 
     <footer>
       <p>Footer</p>
