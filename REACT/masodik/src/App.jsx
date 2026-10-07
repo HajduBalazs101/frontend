@@ -1,11 +1,7 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import Home from "./Home"
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <div>
@@ -16,8 +12,9 @@ function App() {
         <li><a href="contact.asp">Contact</a></li>
         <li><a href="about.asp">About</a></li>
       </ul>
-    </nav>
-    */egyéb tartalom*/
+      </nav>
+
+    {/* egyéb */}
 
     <Home/>
 

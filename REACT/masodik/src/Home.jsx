@@ -1,5 +1,5 @@
 function Home() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <div>
