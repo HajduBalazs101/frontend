@@ -8,11 +8,11 @@ import Header from './Header'
 import Home from './pages/Home'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [borderWidth, setBorderWidth] = useState()  
 
   return (
     <>
-    <Header/>
+    <Header setting={setBorderWidth}/>
     <Home/>
     <footer>
         <p>&copy; 2025 Adorable Pets. All rights reserved.</p>

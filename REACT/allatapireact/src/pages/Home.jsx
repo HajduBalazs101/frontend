@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Card from '../Card'
-export default function () {
+export default function Home(props) {
   const [bgColor, setBgColor] = useState()
   console.log("A szülő így látja: " + bgColor)
   function ColorSet(event) {
@@ -16,9 +16,9 @@ export default function () {
     Állíts be kártyaszínt: <input onChange={ColorSet} type='color'></input>
     </div>
     <div className="pets-container">
-      <Card cardBgColor = {bgColor}/>
-      <Card cardBgColor = {bgColor}/>
-      <Card cardBgColor = {bgColor}/>
+      <Card cardBgColor = {bgColor} borderData={props.borderData}/>
+      <Card cardBgColor = {bgColor} borderData={props.borderData}/>
+      <Card cardBgColor = {bgColor} borderData={props.borderData}/>
     </div>
     </div>
   )

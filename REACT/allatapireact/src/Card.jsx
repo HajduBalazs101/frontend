@@ -4,7 +4,7 @@ export default function Card(props) {
     console.log("A gyerek ezt kapta: " + props.cardBgColor)
   return (
     
-    <div className="card" style = {{width: "18rem", margin: "5px", backgroundColor: props.cardBgColor}}>
+    <div className="card" style = {{width: "18rem", margin: "5px", backgroundColor: props.cardBgColor, border: "solid black" + props.borderData + "px" }}>
         <img className="card-img-top" src="..." alt="Card image cap"/>
         <div className="card-body">
             <h5 className="card-title">Card title</h5>
