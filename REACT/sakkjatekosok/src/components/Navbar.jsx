@@ -1,22 +1,21 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import '../App.css'
+
+import { Link, NavLink } from 'react-router-dom'
 export default function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
-                <Link className='nav-brand nav-link' to="/">Főoldal</Link>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
+                <NavLink className='isActive nav-link' to="/">Főoldal</NavLink>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link className="nav-link" to="/jatekosok">
+                            <NavLink className="isActive nav-link" to="/jatekosok">
                                 Játékosok
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/ujjatekos">Új játékos</Link>
+                            <NavLink className="isActive nav-link" to="/ujjatekos">Új játékos</NavLink>
                         </li>
                     </ul>
                 </div>

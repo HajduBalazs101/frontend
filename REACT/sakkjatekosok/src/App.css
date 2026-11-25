@@ -17,6 +17,10 @@
   }
 }
 
+.active {
+  color: red;
+}
+
 .hero {
   position: relative;
 
