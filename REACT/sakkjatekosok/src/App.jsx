@@ -15,14 +15,14 @@ function App() {
 
   return (
     <>
-    <Navbar/>
-    <Routes>
-            <Route  path='/' element={<Home/>}/> 
-            <Route path='*' element={<Home/>}/>
-            <Route path='/jatekosok' element={<ChessPlayers/>}/>
-            <Route path='/ujjatekos' element={<NewChessPlayer/>}/>
-            <Route path='/idplayer' element={<SingleChessPlayer/>}/>
-    </Routes>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='*' element={<Home />} />
+        <Route path='/jatekosok' element={<ChessPlayers />} />
+        <Route path='/ujjatekos' element={<NewChessPlayer />} />
+        <Route path='/idplayer' element={<SingleChessPlayer />} />
+      </Routes>
     </>
   )
 }
