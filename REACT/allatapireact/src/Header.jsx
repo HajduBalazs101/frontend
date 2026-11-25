@@ -1,8 +1,8 @@
 import React from 'react'
 
 export default function Header(props) {
-  function borderSet(){
-    props.setting(event.target.value)
+  function borderSet(e){
+    props.setting(Number(e.target.value))
   }
   return (
     <header>

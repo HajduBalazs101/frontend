@@ -16,9 +16,9 @@ export default function Home(props) {
     Állíts be kártyaszínt: <input onChange={ColorSet} type='color'></input>
     </div>
     <div className="pets-container">
-      <Card cardBgColor = {bgColor} borderData={props.borderData}/>
-      <Card cardBgColor = {bgColor} borderData={props.borderData}/>
-      <Card cardBgColor = {bgColor} borderData={props.borderData}/>
+      <Card cardBgColor = {bgColor} borderData={props.border}/>
+      <Card cardBgColor = {bgColor} borderData={props.border}/>
+      <Card cardBgColor = {bgColor} borderData={props.border}/>
     </div>
     </div>
   )

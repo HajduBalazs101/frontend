@@ -1,0 +1,471 @@
+/* =========================================================
+   Alap beállítások: színek, betűk, árnyékok, animációk
+   ========================================================= */
+
+:root {
+  /* Színek */
+  --cream: #fbf5ec;
+  --cream-deep: #f4ead9;
+  --paper: #fffdf9;
+  --ink: #1d2e23;
+  --text: #4c5a4f;
+  --muted: #626c60;
+  --line: #ebdfcc;
+  --line-soft: #f1e7d8;
+
+  --forest: #2f5d43;
+  --forest-dark: #234834;
+  --forest-deep: #183224;
+  --matcha: #e3eed3;
+  --matcha-strong: #c9ddb0;
+  --yuzu: #f6a823;
+  --yuzu-soft: #fff0cc;
+  --caramel: #b16f38;
+  --caramel-soft: #f6e3cc;
+  --pond: #d9efe9;
+  --blush: #fbe1d8;
+  --star: #f2a516;
+
+  /* Betűk */
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  /* Formák, árnyékok, mozgás */
+  --radius-sm: 12px;
+  --radius: 22px;
+  --radius-lg: 32px;
+  --shadow-sm: 0 1px 2px rgba(29, 46, 35, 0.05), 0 8px 18px -10px rgba(29, 46, 35, 0.16);
+  --shadow: 0 2px 6px rgba(29, 46, 35, 0.04), 0 24px 48px -20px rgba(29, 46, 35, 0.26);
+  --shadow-lg: 0 40px 80px -30px rgba(29, 46, 35, 0.4);
+  --ease: cubic-bezier(0.22, 0.8, 0.24, 1);
+  --wrap: 1200px;
+  --gutter: clamp(18px, 4vw, 40px);
+
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  overflow-x: clip;
+  background-color: var(--cream);
+  /* finom papírszerű textúra */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.25 0 0 0 0 0.12 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  display: flex;
+  min-height: 100svh;
+  flex-direction: column;
+}
+
+#root > main {
+  flex: 1 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  font-variation-settings: 'SOFT' 100;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(40px, 6vw, 72px);
+}
+
+h2 {
+  font-size: clamp(28px, 3.6vw, 44px);
+}
+
+h3 {
+  font-size: 24px;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: var(--yuzu-soft);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--yuzu);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   Segédosztályok
+   ========================================================= */
+
+.wrap {
+  width: min(100% - 2 * var(--gutter), var(--wrap));
+  margin-inline: auto;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--cream);
+  font-weight: 700;
+  text-decoration: none;
+  transform: translateY(-160%);
+  transition: transform 0.25s var(--ease);
+}
+
+.skip-link:focus {
+  color: var(--cream);
+  transform: none;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  color: var(--forest);
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+.eyebrow-light {
+  color: var(--yuzu);
+}
+
+/* Gombok */
+.button {
+  display: inline-flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 26px;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 15.5px;
+  font-weight: 750;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    transform 0.25s var(--ease),
+    background-color 0.25s,
+    box-shadow 0.25s,
+    color 0.25s;
+}
+
+.button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.button-arrow {
+  display: inline-block;
+  transition: transform 0.25s var(--ease);
+}
+
+.button:hover .button-arrow {
+  transform: translateX(4px);
+}
+
+.button-primary {
+  background: var(--forest);
+  color: #fff;
+  box-shadow: 0 14px 28px -14px rgba(47, 93, 67, 0.9);
+}
+
+.button-primary:hover {
+  background: var(--forest-dark);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 20px 34px -14px rgba(47, 93, 67, 0.9);
+}
+
+.button-ghost {
+  background: transparent;
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1.5px var(--line);
+}
+
+.button-ghost:hover {
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1.5px var(--matcha-strong), var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.button-dark {
+  background: var(--ink);
+  color: var(--cream);
+  box-shadow: 0 16px 30px -16px rgba(29, 46, 35, 0.9);
+}
+
+.button-dark:hover {
+  background: var(--forest-deep);
+  color: var(--cream);
+  transform: translateY(-2px);
+}
+
+.button-block {
+  width: 100%;
+}
+
+/* Színtónusok kártyákhoz */
+.tone-matcha {
+  --tone-bg: var(--matcha);
+  --tone-accent: var(--matcha-strong);
+}
+
+.tone-yuzu {
+  --tone-bg: var(--yuzu-soft);
+  --tone-accent: #ffdb8f;
+}
+
+.tone-pond {
+  --tone-bg: var(--pond);
+  --tone-accent: #b7e1d6;
+}
+
+.tone-blush {
+  --tone-bg: var(--blush);
+  --tone-accent: #f7c4b2;
+}
+
+.tone-caramel {
+  --tone-bg: var(--caramel-soft);
+  --tone-accent: #ecc79c;
+}
+
+/* =========================================================
+   Animációk
+   ========================================================= */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--r, 0deg));
+  }
+  50% {
+    transform: translateY(-10px) rotate(var(--r, 0deg));
+  }
+}
+
+@keyframes steam {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  35% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-26px);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.95;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.6);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.35);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(76, 175, 114, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(76, 175, 114, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(76, 175, 114, 0);
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fill {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes toast {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+  }
+  12%,
+  85% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.reveal {
+  animation: rise 0.8s var(--ease) both;
+  animation-delay: calc(var(--d, 0) * 110ms + 60ms);
+}
+
+@supports (animation-timeline: view()) {
+  .reveal-on-scroll {
+    animation: rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 24%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal-on-scroll,
+  .marquee-track {
+    animation: none !important;
+  }
+}

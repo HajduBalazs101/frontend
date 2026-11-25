@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Kapi",
+    "imgURL": "https://loremflickr.com/640/480/capybara?lock=1",
+    "desc": "Barátságos kapibara, aki szívesen pihen a vízparton."
+  },
+  {
+    "id": 2,
+    "name": "Mogyoró",
+    "imgURL": "https://loremflickr.com/640/480/capybara?lock=2",
+    "desc": "Nyugodt természetű kapibara, a friss zöldségek nagy rajongója."
+  },
+  {
+    "id": 3,
+    "name": "Buborék",
+    "imgURL": "https://loremflickr.com/640/480/capybara?lock=3",
+    "desc": "Kíváncsi kapibara, aki szeret a csapatával együtt úszkálni."
+  }
+]
